@@ -39,6 +39,11 @@ jobs:
           healthcheck: "https://pokedex-t13.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+          
+  add_tag:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
       - if: ${{ github.event_name == 'push' }}
         name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.33.0
